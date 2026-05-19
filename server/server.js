@@ -31,7 +31,7 @@ app.use(express.static(join(__dirname, '..')));
 
 const contactLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 5,
+  limit: 5,
   message: { error: 'Too many requests, please try again later.' },
 });
 
