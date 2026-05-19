@@ -795,7 +795,8 @@
           body: JSON.stringify({ name, email, message }),
         });
 
-        const data = await res.json();
+        let data = {};
+        try { data = await res.json(); } catch { /* non-JSON response */ }
 
         if (!res.ok) {
           throw new Error(data.error || 'Something went wrong.');
